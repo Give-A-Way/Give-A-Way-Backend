@@ -2,7 +2,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt')
 const app = express();
-const port = 3000; 
+const port = 3100; 
 const cors = require('cors');
 const authenRouter = require('./routes/authenticationRouter.js');
 const donationRouter = require("./routes/scheduleDonationRouter.js");
@@ -24,7 +24,7 @@ app.get('/listings', async (req, res) => {
   });
   
 app.listen(port, () =>
-  console.log(`Example app listening on port 3000!`),
+  console.log(`Example app listening on port 3100!`),
 );
 
 
