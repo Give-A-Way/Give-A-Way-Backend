@@ -14,8 +14,9 @@ const getUsersListings = (user_id) => {
 }
 
 const insertSchedule = (user_id, church_id,item_des, schedule_time ) => {
-    return pool.query("INSERT INTO public schedule_drop_off (user_id,church_id,item_description,schedule_time) VALUES($1, $2, $3, $4) RETURNING *", [user_id, church_id, item_des, schedule_time]).then(result => { return result.rows[0] });
+    return pool.query("INSERT INTO public.schedule_drop_off (user_id,church_id,item_description,schedule_time) VALUES($1, $2, $3, $4) RETURNING *", [user_id, church_id, item_des, schedule_time]).then(result => { return result.rows[0] });
 }
+
 module.exports = {
     getListing,
     changeStatus,
