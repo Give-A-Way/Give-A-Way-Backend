@@ -9,6 +9,8 @@ exports.up = function(knex) {
         table.integer("church_id");
         table.foreign("user_id").references("id").inTable("business_users")
         table.foreign("church_id").references("id").inTable("church_listings")
+        table.string("item_description");
+        table.string("schedule_time");
      })
 };
 
