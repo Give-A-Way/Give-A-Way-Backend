@@ -9,6 +9,7 @@ exports.up = function(knex) {
         table.string("location");
         table.string("img");
         table.string("phone_number");
+        table.string("request_type");
         table.string("status");
      })
 };
