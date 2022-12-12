@@ -1,3 +1,5 @@
+\db.js
+\knexfile.js
 # Logs
 logs
 *.log
@@ -5,6 +7,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -84,6 +87,7 @@ dist
 
 # Gatsby files
 .cache/
+
 # Comment in the public line in if your project uses Gatsby and *not* Next.js
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
@@ -99,6 +103,6 @@ dist
 
 # DynamoDB Local files
 .dynamodb/
-
+.db
 # TernJS port file
 .tern-port

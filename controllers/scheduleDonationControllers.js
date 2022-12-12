@@ -19,13 +19,19 @@ const changeStatusToPending = async(req,res) => {
 }
 
 const userPastListing = async(req,res) => {
-    const {user_id} = req.body;
-    const data = await donationModels.getUsersListings(user_id);
+    // const {user_id} = req.body;
+    console.log(req.params.id)
+    const data = await donationModels.getUsersListings(req.params.id);
     return data ? res.send(data): res.sendStatus(404);
 }
 
+const updateDonationStatus = async (req, res) => { 
+    donationModels.updateDonationStatusDB(req.params.id)
+    return res.send({ true: "true" });
+}
 module.exports = {
     getAllLinstings,
     changeStatusToPending,
-    userPastListing
+    userPastListing,
+    updateDonationStatus
 }

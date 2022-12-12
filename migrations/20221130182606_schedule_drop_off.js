@@ -4,13 +4,14 @@
  */
 exports.up = function(knex) {
     return  knex.schema.createTable("schedule_drop_off", table => {
-        table.increments('id').primary()
+        table.increments('donation_id').primary()
         table.integer("user_id");
         table.integer("church_id");
         table.foreign("user_id").references("id").inTable("business_users")
         table.foreign("church_id").references("id").inTable("church_listings")
         table.string("item_description");
         table.string("schedule_time");
+        table.string("status_of_donation");
      })
 };
 

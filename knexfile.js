@@ -8,9 +8,9 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'Give_a_way',
-      user:     'postgres',
-      password: ''
+      database: 'give_a_way',
+      user:     'aldair',
+      password: 'a'
     }
   },
 
@@ -19,9 +19,9 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      database: 'Give_a_way',
-      user:     'postgres',
-      password: ''
+      database: 'give_a_way',
+      user:     'aldair',
+      password: 'a'
     },
     pool: {
       min: 2,
