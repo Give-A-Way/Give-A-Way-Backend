@@ -14,7 +14,7 @@ const getUsersListings = (user_id) => {
 }
 
 const insertSchedule = (user_id, church_id, item_des,type, schedule_time, day) => {
-    return pool.query("INSERT INTO public.schedule_drop_off (user_id,church_id,item_description,type_of_donation,schedule_time,status_of_donation,day) VALUES($1, $2, $3, $4,'in progress', $5, $6) RETURNING *", [user_id, church_id, item_des, type, schedule_time, day]).then(result => { return result.rows[0] });
+    return pool.query("INSERT INTO public.schedule_drop_off (user_id,church_id,item_description,type_of_donation,schedule_time,status_of_donation,day) VALUES($1, $2, $3, $4,$5,'in progress', $6) RETURNING *", [user_id, church_id, item_des, type, schedule_time, day]).then(result => { return result.rows[0] });
 }
 
 const updateDonationStatusDB = (donation_id) => {
