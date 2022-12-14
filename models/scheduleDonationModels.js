@@ -20,10 +20,14 @@ const insertSchedule = (user_id, church_id, item_des,type, schedule_time, day) =
 const updateDonationStatusDB = (donation_id) => {
     return pool.query("UPDATE schedule_drop_off Set status_of_donation = 'fulfilled' WHERE schedule_drop_off.donation_id = $1", [donation_id])
 }
+const userPastListingHereDB = (id) => { 
+    return pool.query("SELECT * from schedule_drop_off JOIN church_listings ON schedule_drop_off.church_id = church_listings.id where schedule_drop_off.user_id = $1 AND schedule_drop_off.status_of_donation = 'fulfilled'", [id]).then(result => { return result.rows });
+}
 module.exports = {
     getListing,
     changeStatus,
     getUsersListings,
     insertSchedule,
-    updateDonationStatusDB
+    updateDonationStatusDB,
+    userPastListingHereDB
 }
