@@ -5,6 +5,7 @@ const register = async (req,res) => {
     try {
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(password, salt);
+
         const register =  await authentificationModels.registerInfo(companyName,email,userName,hashedPassword)
         res.send(register);
     }catch {
@@ -15,13 +16,12 @@ const register = async (req,res) => {
 
 const checkLogin = async (req,res) => {
     const {userName, password} = req.body;
-    console.log(userName, password)
     const nameExist = await authentificationModels.loginInfo(userName)
+    
     if (nameExist.length < 1) res.status(400).json({message: "Cannot find User"});
     else {
         const user = nameExist[0];
         const passCheck = await bcrypt.compare(password, user.password);
-        console.log(passCheck)
         if(!passCheck) res.status(400).json({message:"Password is incorrect"});
         else res.status(200).json(nameExist)
     } 
