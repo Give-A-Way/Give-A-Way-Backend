@@ -7,8 +7,6 @@ exports.up = function(knex) {
         table.increments('donation_id').primary()
         table.integer("user_id");
         table.integer("church_id");
-        table.foreign("user_id").references("id").inTable("business_users")
-        table.foreign("church_id").references("id").inTable("church_listings")
         table.string("item_description");
         table.string("type_of_donation");
         table.string("schedule_time");
