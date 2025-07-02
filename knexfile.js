@@ -20,10 +20,12 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: {
-      database: 'give_a_way',
-      user: "aldair",
-      password: "a",
+    connection: process.env.PG_CONNECTION_STRING || {
+      host: process.env.PGHOST || 'localhost',
+      port: process.env.PG_PORT || 5433,
+      user: process.env.PGUSER || 'postgres',
+      password: process.env.PGPASSWORD || 'a',
+      database: process.env.POSTGRES_DB || 'give',
     },
     pool: {
       min: 2,
