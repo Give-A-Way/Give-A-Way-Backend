@@ -10,9 +10,9 @@ module.exports = {
     client: 'pg',
     connection: process.env.PG_CONNECTION_STRING || {
       host: process.env.PGHOST || 'localhost',
-      port: process.env.P_PORT || 5433,
+      port: process.env.PG_PORT || 5433,
       user: process.env.PGUSER || 'postgres',
-      password: process.env.PGPASS || 'a',
+      password: process.env.PGPASSWORD || 'a',
       database: process.env.POSTGRES_DB || 'give',
     },
   },
