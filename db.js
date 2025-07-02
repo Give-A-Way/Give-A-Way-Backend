@@ -1,11 +1,13 @@
-const { Pool } = require('pg')
+// Set the deployment environment variable
+// Depending on where it is deployed, this could be "staging" or "production"
+const env = process.env.NODE_ENV || 'development';
 
-let connectionString = 'postgresql://postgres:W1gBqP4SFe6U731gDtxQ@containers-us-west-121.railway.app:5907/railway'
-const pool = new Pool({
-    connectionString,
-    // database: 'give_a_way',
-    // user: "aldair",
-    // password: "a",
-})
+// Grab the corresponding knex configuration object from knexfile.js
+const knexConfig = require('./knexfile.js')[env];
 
-module.exports = pool;
+// Create the knex connection object using that config
+const knex = require('knex')(knexConfig);
+
+module.exports = knex;
+
+// module.exports = pool;
