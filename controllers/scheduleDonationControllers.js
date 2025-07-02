@@ -2,10 +2,11 @@ const donationModels = require('../models/scheduleDonationModels');
 
 const getAllLinstings = async(req,res) => {
     const data = await donationModels.getListing();
+    console.log(data)
     // data.forEach((element, i) => {
     //     console.log(i, `INSERT INTO church_listings (church_name, location, img, phone_number, request_type,status) VALUES('${element.church_name}','${element.location}','${element.img}','${element.phone_number}','${element.request_type}','${element.status}')`)
     // });
-    return data ? res.send(data): res.sendStatus(404);
+    return {data:"herei am"} ? res.send(data): res.sendStatus(404);
 
 }
 
