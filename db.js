@@ -4,8 +4,6 @@ const env = process.env.NODE_ENV || 'development';
 
 // Grab the corresponding knex configuration object from knexfile.js
 const knexConfig = require('./knexfile.js')[env];
-console.log(env)
-console.log(knexConfig)
 // Create the knex connection object using that config
 const knex = require('knex')(knexConfig);
 
