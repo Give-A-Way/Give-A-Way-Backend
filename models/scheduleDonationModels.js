@@ -1,7 +1,7 @@
 const knex = require("../db.js")
 
 const getListing = () => {
-    return knex.raw("SELECT * FROM public.church_listings").then(result => { 
+    return knex.raw("SELECT * FROM church_listings").then(result => { 
         console.log(result)
         return result.rows 
     });
