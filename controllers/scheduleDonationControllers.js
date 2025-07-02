@@ -6,7 +6,7 @@ const getAllLinstings = async(req,res) => {
     // data.forEach((element, i) => {
     //     console.log(i, `INSERT INTO church_listings (church_name, location, img, phone_number, request_type,status) VALUES('${element.church_name}','${element.location}','${element.img}','${element.phone_number}','${element.request_type}','${element.status}')`)
     // });
-    return {data:"herei am"} ? res.send(data): res.sendStatus(404);
+    return {data:"here i am"} ? res.send(data): res.sendStatus(404);
 
 }
 
