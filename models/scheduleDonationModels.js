@@ -1,7 +1,10 @@
 const knex = require("../db.js")
 
 const getListing = () => {
-    return knex.raw("SELECT * FROM public.church_listings").then(result => { return result.rows });
+    return knex.raw("SELECT * FROM public.church_listings").then(result => { 
+        console.log(result)
+        return result.rows 
+    });
 }
 
 const changeStatus = (id, status = "pending") => {
