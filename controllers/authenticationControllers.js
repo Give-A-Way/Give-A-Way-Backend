@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const authentificationModels = require("../models/authenticationModels.js")
+
 const register = async (req,res) => {
     const {companyName,email,userName,password} = req.body;
     try {

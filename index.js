@@ -1,16 +1,21 @@
 // requries 
+require('dotenv').config();
 const express = require('express');
-const bcrypt = require('bcrypt')
-const app = express();
-const port = 3000; 
-const cors = require('cors');
+const path = require('path');
+
+
 const authenRouter = require('./routes/authenticationRouter.js');
 const donationRouter = require("./routes/scheduleDonationRouter.js");
-const pool = require('./db.js');
+
+const app = express();
+
+const port = 3000; 
+
+
+
 
 // middleware
-app.use(express.json());
-app.use(cors());
+app.use(express.json()); // parse incoming request bodies as JSON
 app.use('/authentication', authenRouter);
 app.use('/listings', donationRouter);
 
