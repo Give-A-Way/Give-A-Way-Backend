@@ -8,17 +8,14 @@ const getAllLinstings = async(req,res) => {
 
 const changeStatusToPending = async(req,res) => {
     const {id, user_id, itemDescription, type, time,day} = req.body;
-    console.log(req.body);
-    // const data = await donationModels.changeStatus(id);
+    const data = await donationModels.changeStatus(id);
     const secData = await donationModels.insertSchedule(user_id, id, itemDescription, type,time,day);
-    console.log(secData)
+
     return data ? res.send(data): res.sendStatus(404);
 }
 
 const userPastListing = async(req,res) => {
-    console.log("__________________________",req.params.id)
     const data = await donationModels.getUsersListings(req.params.id);
-    console.log(data)
     return data ? res.send(data): res.sendStatus(404);
 }
 
@@ -28,7 +25,7 @@ const updateDonationStatus = async (req, res) => {
 }
 const userPastListingHere = async (req, res) => { 
     let data = await donationModels.userPastListingHereDB(req.params.id)
-    console.log(data)
+    // console.log(data)
     return data ? res.send(data): res.sendStatus(404);
 }
     

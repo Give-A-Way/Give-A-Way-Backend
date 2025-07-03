@@ -9,11 +9,7 @@ const changeStatus = (id, status = "pending") => {
 }
 
 const getUsersListings = (user_id) => {
-    return knex.raw(`SELECT * from schedule_drop_off JOIN church_listings ON schedule_drop_off.church_id = church_listings.id WHERE schedule_drop_off.user_id = ? AND schedule_drop_off.status_of_donation = 'in progress'  ORDER  BY schedule_drop_off.schedule_time ASC`, [user_id])
-        .then(result => { 
-            return result.rows });
-    // console.log(data)
-    return data
+    return knex.raw(`SELECT * from schedule_drop_off JOIN church_listings ON schedule_drop_off.church_id = church_listings.id WHERE schedule_drop_off.user_id = ? AND schedule_drop_off.status_of_donation = 'in progress'  ORDER  BY schedule_drop_off.schedule_time ASC`, [user_id]).then(result => { return result.rows });
 }
 
 const insertSchedule = (user_id, church_id, item_des, type, schedule_time, day) => {
@@ -21,7 +17,7 @@ const insertSchedule = (user_id, church_id, item_des, type, schedule_time, day) 
 }
 
 const updateDonationStatusDB = (donation_id) => {
-    return knex.raw("UPDATE schedule_drop_off Set status_of_donation = 'fulfilled' WHERE schedule_drop_off.donation_id = ?", [donation_id])
+    return knex.raw(`UPDATE public.schedule_drop_off Set status_of_donation = 'fulfilled' WHERE public.schedule_drop_off.donation_id = ?`, [donation_id]).then(result => { return result.rows[0] });
 }
 const userPastListingHereDB = (id) => {
     return knex.raw("SELECT * from schedule_drop_off JOIN church_listings ON schedule_drop_off.church_id = church_listings.id where schedule_drop_off.user_id = ? AND schedule_drop_off.status_of_donation = 'fulfilled'", [id]).then(result => { return result.rows });
