@@ -10,7 +10,7 @@ const cors = require('cors')
 const app = express();
 app.use(
   cors({
-    origin:"https://give-a-way.netlify.app/"
+    origin:"*"
   })
 )
 const port = 3000; 
