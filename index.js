@@ -6,9 +6,13 @@ const path = require('path');
 
 const authenRouter = require('./routes/authenticationRouter.js');
 const donationRouter = require("./routes/scheduleDonationRouter.js");
-
+const cors = require('cors')
 const app = express();
-
+app.use(
+  cors({
+    origin:"https://give-a-way.netlify.app/"
+  })
+)
 const port = 3000; 
 
 
