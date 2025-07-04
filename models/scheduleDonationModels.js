@@ -5,7 +5,7 @@ const getListing = () => {
 }
 
 const changeStatus = (id, status = "pending") => {
-    return knex.raw("UPDATE public.church_listings SET status = ? WHERE id = ? RETURNING *", [id, status]).then(result => { return result.rows[0] });
+    return knex.raw("UPDATE public.church_listings SET status = ? WHERE id = ? RETURNING *", [status, id]).then(result => { return result.rows[0] });
 }
 
 const getUsersListings = (user_id) => {
